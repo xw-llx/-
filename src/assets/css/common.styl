@@ -1,0 +1,315 @@
+// 字体大小变量
+$f_small =14px //字体正常大小
+$f_normal = 16px
+$f_secondary = 18px
+$f_large = 20px
+$f_large_more=25px
+// 字体间距
+$f_line_height=.533333rem
+// 颜色变量
+$color_blue=rgba(0, 121, 248, 1)//注册登录的统一颜色
+$color_paleblue=rgba(131, 219, 249, 1)
+$color_green=rgba(0, 248, 67, 1)
+$gray=rgba(172, 172, 172, 1)
+// 纯白色
+$color_white=#fff
+// 灰色
+$color_f=#f2f2f2
+// 字体间距
+$padding_p = 0.2rem 0;
+// 板块之间的距离
+$margin_div = 0.35rem;
+// 字体透明度
+$opacity=0.5
+// 圆角
+$border_radius=3px
+// 弹窗的span字体宽度
+$list_div_span=2.5rem
+// 字体大小和颜色函数
+_common_font(sz,cr){
+  font-size: sz ;
+  color: cr; 
+}
+//公用css背景图片
+_common_img(bcg_url){
+  background-image: url(bcg_url);
+  background-size: 100%;
+  background-position: center center;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100%;
+}
+// flex兼容性
+_common_flex(){
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */  
+  display: -moz-box; /* Firefox 17- */  
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */  
+  display: -moz-flex; /* Firefox 18+ */  
+  display: -ms-flexbox; /* IE 10 */  
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */  
+}
+// transform旋转90°
+_common_transform(degree){
+  transform: rotate(degree deg);
+  -ms-transform: rotate(degree deg); /* IE 9 */
+  -moz-transform: rotate(degree deg); /* Firefox */
+  -webkit-transform: rotate(degree deg); /* Safari and Chrome */
+  -o-transform: rotate(degree deg); /* Opera */
+}
+// 自定义透明度
+_common_opcation(cr1,cr2,cr3,opc){
+  color: rgba(cr1,cr2,cr3,opc)
+}
+//显示方式
+_display(arg=block){
+  display:arg
+}
+// 公用自定义底部下换线颜色
+_common_border_boottom(avg){
+  border-bottom: 1px solid avg;
+}
+// 公用自定义分割线
+_common_border_fenge(px,col,hei){
+  width: px;
+  background-color: col;
+  height: hei;
+}
+// 内容区
+.template{
+  position:relative;
+}
+// 去掉路由跳转router-link中的默认属性 一个router-link在浏览器中解析成a标签
+.router_a{
+  text-decoration: none;
+  color:#2c3e50; 
+}
+//公用去掉input默认样式
+.common_input_none{
+  // 去掉外边框样式
+  border: none;
+  // 去掉选中时候的样式
+  outline: none;
+}
+// 公用headr下划线(浅色)
+.common_boder_header{
+  border-bottom: 1px solid #EAE9E9;  
+}
+// 公用底部下划线(深色)
+.common_boder_bottom {
+  border-bottom: 1px solid #999999;
+}
+// 公用内容区宽度
+.common_content_width {
+  position relative
+  width: 95%;
+  margin: 0 auto;
+}
+// 公用字体排列格式和字体大小(14px)
+.common_font_aling {
+  text-align: initial;
+  font-size: $f_normal;
+}
+// 公用底部导航栏样式
+.bottom {
+  height: 1.3rem;
+  width: 100%;
+  position: fixed;
+  // border-top: 0.01rem solid $gray;
+  bottom: 0;
+  _common_flex();
+  justify-content: space-around;
+  align-items: center;
+  background-color #fff
+  box-shadow:1px 1px 10px rgba(153,153,153,0.4)
+
+  .bottom_icon img {
+    width: 0.52rem;
+    height: 0.52rem;
+  }
+}
+// 公用弹窗背景颜色
+.tanchuang_content{
+  height 100%;
+	background-color: rgba(100, 100, 100, 0.5);
+  opacity 1
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 11;
+}
+// 公用转入转出弹窗背景色
+.tanchuang_content_zhuan {
+  opacity: 1;
+  height: 100%;
+  background-color: rgba(100, 100, 100, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 11;
+}
+// 公用转入转出样式
+.suicun_footer {
+  @extend .common_content_width;
+  _common_flex();
+  justify-content: space-between;
+}
+
+.suicun_footer_out {
+  position: relative;
+  width: 4.6rem;
+  height: 1.186667rem;
+  background-color: rgba(0, 121, 248, 1);
+  _common_flex();
+  align-items: center;
+  justify-content: center;
+  border-radius: $border_radius;
+  border 1px solid #356bff
+  p {
+    _common_font($f_normal, #fff);
+  }
+
+  img {
+    position: relative;
+    width: 0.5rem;
+    height: 0.5rem;
+    _common_transform(270);
+    right: 0.266667rem;
+  }
+}
+
+.suicun_footer_ru {
+  @extend .suicun_footer_out;
+  background-color: $color_white;
+
+  p {
+    _common_font($f_normal, $color_blue);
+  }
+
+  img {
+    _common_transform(90);
+    left: 0.266667rem;
+  }
+}
+// 公用头部信息
+.header {
+  position: relative;
+  _common_flex();
+  justify-content: flex-start;
+  align-items: center;
+  height: 1.093333rem;
+  // @extend .common_boder_header;
+  font-size: $f_normal;
+  margin-bottom: 0.2rem
+  img {
+    position: relative;
+    width: 0.64rem;
+    height: 0.64rem;
+    _common_transform(180);
+    left: 0.293333rem;
+  }
+
+  p {
+    flex: 1;
+  }
+}
+// 公用弹窗头部信息/资产转入/转出
+.zican_zhuanru {
+  position: fixed;
+  // height: 63%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  bottom: 0;
+  font-size: $f_normal;
+  .zican_zhuanru_header {
+      height: 1.2rem;
+      _common_flex();
+      align-items: center;
+      justify-content: center;
+      @extend .common_boder_header;
+      img {
+        position absolute
+        width .4rem
+        right .3rem
+      }
+  }
+}
+// 公用弹窗头部信息/修改密码等
+.change_pwd {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  bottom: 0;
+  font-size: $f_normal;
+  border-top-left-radius: 10px
+  border-top-right-radius: 10px
+  .zican_zhuanru_header {
+      height: 1.2rem;
+      _common_flex();
+      align-items: center;
+      justify-content: center;
+      @extend .common_boder_header;
+      img {
+        position absolute
+        width .4rem
+        right .3rem
+      }
+  }
+}
+//公用提交样式
+.submit {
+  @extend .common_content_width;
+  _common_flex();
+  height: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 121, 248, 1);
+  margin-top: $margin_div;
+  margin-bottom: 0.5rem
+  color: #fff;
+  border-radius $border_radius
+}
+// 公用板块阴影
+.common_shadow{
+  box-shadow:1px 1px 10px rgba(153, 153, 153, 0.5)
+}
+// 注册登录公用按钮样式
+.common_login {
+  @extend .common_content_width
+  _common_flex();
+  flex-flow: column;
+  justify-content: center;
+  height: 1.5rem;
+  background-color: rgba(0, 121, 248, 1);
+  margin-top: 0.8rem;
+  color: rgba(255, 255, 255, 1);
+  // line-height: 0.8rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem
+  h1,h2,h3,h4{
+    font-weight: normal
+  }
+
+}
+// 公用头部信息/修改密码修改昵称等弹窗
+.change_pwd_header {
+  _common_flex();
+  justify-content: center;
+  align-items: center;
+  // margin-right: 0.666667rem;
+  height: 1.066667rem;
+  padding .266667rem 0
+  img {
+    position: absolute;
+    right: 0.5rem;
+    width: 0.58rem;
+    height: 0.58rem;
+  }
+
+  h2 {
+    font-weight: normal;
+  }
+}
+
